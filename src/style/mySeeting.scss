@@ -1,0 +1,28 @@
+@import './common/reset.scss';
+@import './common/common.scss';
+#all{
+    #connect-user{
+      .connect{
+        width: 100%;
+        height: 105px;
+        display: flex;
+        align-items: center;
+        background-color: #0085ff;
+        padding: auto;
+        .connect-logo{
+          img{
+            width: 57.6px;
+            height: 57.6px;
+          }
+        }
+        .connect-title{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          .userTelphone{
+            
+          }
+        }  
+      }
+    }
+}
