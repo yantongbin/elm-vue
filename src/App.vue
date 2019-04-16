@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style>
-  @import './style/mySeeting.scss'
+  @import './style/home.scss'
 </style>
 
 
