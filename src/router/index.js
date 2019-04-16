@@ -7,10 +7,10 @@ export default new VueRouter({
     { path: '/',
       component: () => import('../page/home/home.vue'),
       children: [
-        { path: 'fristPage', component: () => import ('../page/fristPage/fristPage.vue') },
-        { path: 'find', component: () => import ('../page/find/find.vue') },
-        { path: 'orderform', component: () => import ('../page/orderForm/orderform.vue') },
-        { path: 'mysetting', component: () => import ('../page/mySetting/mySetting.vue') }
+        { path: 'fristPage', component: () => import ('../page/home/children/fristPage.vue') },
+        { path: 'find', component: () => import ('../page/home/children/find.vue') },
+        { path: 'orderform', component: () => import ('../page/home/children/orderform.vue') },
+        { path: 'mysetting', component: () => import ('../page/home/children/mySetting.vue') }
       ]
 
     }

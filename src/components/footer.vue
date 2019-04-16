@@ -10,24 +10,6 @@
           <span> {{item.name}} </span>
         </router-link>
       </li>
-      <!-- <li class="footer-li">
-        <a href="##">
-          <i class="iconfont">📱</i>
-          <span>发现</span>
-        </a>
-      </li>
-      <li class="footer-li">
-        <a href="##">
-          <i class="iconfont">📱</i>
-          <span>订单</span>
-        </a>
-      </li>
-      <li class="footer-li">
-        <a href="##">
-          <i class="iconfont">📱</i>
-          <span>我的</span>
-        </a>
-      </li> -->
     </ul>
   </div>
 </template>
