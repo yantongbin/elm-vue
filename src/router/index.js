@@ -10,9 +10,18 @@ export default new VueRouter({
         { path: 'fristPage', component: () => import ('../page/home/children/fristPage.vue') },
         { path: 'find', component: () => import ('../page/home/children/find.vue') },
         { path: 'orderform', component: () => import ('../page/home/children/orderform.vue') },
-        { path: 'mysetting', component: () => import ('../page/home/children/mySetting.vue') }
+        { path: 'mysetting', component: () => import ('../page/home/children/mySetting.vue') },
+        { path: '', redirect: ('../page/home/children/fristPage.vue') }
       ]
-
-    }
+    },
+    {
+      path: '/mysetting',
+      component: () => import('../page/mysetting/myset.vue'),
+      children: [
+        { path: 'login', component: () => import('../page/mysetting/children/login.vue') },
+        // { path: '', redirect: ('../page/mysetting/myset.vue') }
+      ]
+    },
+    { path: '*', component: () => import('../page/home/home.vue') }
   ]
 })

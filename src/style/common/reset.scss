@@ -5,9 +5,12 @@ body,html,ul,ol,dl,li,dt,dd,h1,h2,h3,h4,h5,h6,form,p,table,th,tr,td,input,textar
 	margin:0;
 	padding:0;	
 	}
+html{
+	background-color: #f5f5f5;
+}
 body{
 	width:100%;
-	font-size: 0.14rem;
+	font-size: 16px;
 }
 h1,h2,h3,h4,h5,h6,b,strong{
 	font-weight:normal;	
