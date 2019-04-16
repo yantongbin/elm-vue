@@ -18,10 +18,10 @@ export default new VueRouter({
       path: '/mysetting',
       component: () => import('../page/mysetting/myset.vue'),
       children: [
-        { path: 'login', component: () => import('../page/mysetting/children/login.vue') },
         // { path: '', redirect: ('../page/mysetting/myset.vue') }
       ]
     },
+    { path: '/login', component: () => import('../page/login/login.vue') },
     { path: '*', component: () => import('../page/home/home.vue') }
   ]
 })
