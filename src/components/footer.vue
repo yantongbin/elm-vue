@@ -3,7 +3,7 @@
     <ul class="footer-ul bordert1px">
       <li class="footer-li"
           v-for="item in tabs"
-          :key="item.name"    
+          :key="item.name"
       >
         <router-link :to="item.href" active-class="active" class="a-link">
           <i :class="['iconfont',item.icon]"></i>
@@ -16,8 +16,8 @@
 <script>
 export default {
   props: {
-    tabs:{
-      type:Array,
+    tabs: {
+      type: Array
     }
   }
 }
@@ -49,8 +49,7 @@ export default {
       }
       .active{
         color: #0089dc;
-      }      
+      }
     }
   }
 </style>
-

@@ -99,7 +99,7 @@
   </div>
 </template>
 <script>
-export default {};
+export default {}
 </script>
 
 <style lang="scss" scoped>
@@ -339,6 +339,3 @@ export default {};
   color: #4ab6f0;
 }
 </style>
-
-
-

@@ -7,11 +7,11 @@ export default new VueRouter({
     { path: '/',
       component: () => import('../page/home/home.vue'),
       children: [
-        { path: 'fristPage', component: () => import ('../page/home/children/fristPage.vue') },
-        { path: 'find', component: () => import ('../page/home/children/find.vue') },
-        { path: 'orderform', component: () => import ('../page/home/children/orderform.vue') },
-        { path: 'mysetting', component: () => import ('../page/home/children/mySetting.vue') },
-        { path: '', redirect: ('../page/home/children/fristPage.vue') }
+        { path: 'fristPage', component: () => import('../page/home/children/fristPage.vue') },
+        { path: 'find', component: () => import('../page/home/children/find.vue') },
+        { path: 'orderform', component: () => import('../page/home/children/orderform.vue') },
+        { path: 'mysetting', component: () => import('../page/home/children/mySetting.vue') },
+        { path: '', redirect: ('/mysetting') }
       ]
     },
     {
@@ -22,6 +22,7 @@ export default new VueRouter({
       ]
     },
     { path: '/login', component: () => import('../page/login/login.vue') },
-    { path: '*', component: () => import('../page/home/home.vue') }
+    { path: '/shop', component: () => import('../page/shoppingCenter/shop.vue') },
+    { path: '*', redirect: ('/mysetting') }
   ]
 })

@@ -23,12 +23,12 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
-      sms: ""
-    };
+      sms: ''
+    }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -116,4 +116,3 @@ export default {
   }
 }
 </style>
-
