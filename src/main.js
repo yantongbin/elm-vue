@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index'// 引入的路由模块文件
-import { Button, Cell, Field, Card, Tag, Stepper,GoodsAction,GoodsActionBigBtn,GoodsActionMiniBtn,Actionsheet,Toast} from 'vant'
+import { Button, Cell, Field, Card, Tag, Stepper, GoodsAction, GoodsActionBigBtn, GoodsActionMiniBtn, Actionsheet, Toast } from 'vant'
 
 Vue.use(Field).use(Button).use(Cell).use(Card).use(Tag).use(Stepper).use(GoodsAction).use(GoodsActionBigBtn).use(GoodsActionMiniBtn).use(Actionsheet).use(Toast)
 Vue.config.productionTip = false

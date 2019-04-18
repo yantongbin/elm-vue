@@ -14,17 +14,15 @@ import other from '../../../components/other'
 import banner02 from '../../../components/banner02'
 import Axios from 'axios'
 export default {
-    data(){
-        return{
-        }
-
-    },
-   components:{
-       Header:header,
-       Banner:banner,
-       Other:other,
-       Banner02:banner02,
-   }
+  data () {
+    return {
+    }
+  },
+  components: {
+    Header: header,
+    Banner: banner,
+    Other: other,
+    Banner02: banner02
+  }
 }
 </script>
-

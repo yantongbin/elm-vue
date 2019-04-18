@@ -36,36 +36,36 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       tabs: [
-        { id: "shoplist", name: "点餐", href: "/shop/shoplist" },
-        { id: "shopevaluate", name: "评价", href: "/shop/shopevaluate" },
-        { id: "merchant", name: "商家", href: "/shop/merchant" }
+        { id: 'shoplist', name: '点餐', href: '/shop/shoplist' },
+        { id: 'shopevaluate', name: '评价', href: '/shop/shopevaluate' },
+        { id: 'merchant', name: '商家', href: '/shop/merchant' }
       ],
       tabName: this.$route.path.substring(6)
     }
   },
   computed: {
-    shopTab() {
-      let obj = { left: "9%" };
+    shopTab () {
+      let obj = { left: '9%' }
       if (this.tabName === 'shoplist') {
-        obj.left = "9%";
+        obj.left = '9%'
       } else if (this.tabName === 'shopevaluate') {
-        obj.left = "42%";
+        obj.left = '42%'
       } else if (this.tabName === 'merchant') {
-        obj.left = "75%";
+        obj.left = '75%'
       }
       return obj
     }
   },
   methods: {
-    changeType(item) {
-      this.tabName = item.id;
-      this.$router.push(item.href);
+    changeType (item) {
+      this.tabName = item.id
+      this.$router.push(item.href)
     }
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 .header {
@@ -139,4 +139,3 @@ export default {
   }
 }
 </style>
-

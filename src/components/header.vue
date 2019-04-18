@@ -18,7 +18,7 @@
 </template>
 <script>
 export default {
-    
+
 }
 </script>
 <style>
@@ -101,5 +101,3 @@ export default {
 	color: #d9b365;
 }
 </style>
-
-

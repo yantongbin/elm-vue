@@ -8,7 +8,7 @@
   				<img src="https://fuss10.elemecdn.com/7/d8/a867c870b22bc74c87c348b75528djpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/" />
             <span class="title">美食</span>
   			</a>
-        
+
   		</li>
   		<li>
   			<a href="#">
@@ -76,7 +76,7 @@
 export default {
   //  props:{
   //      banners:{
-  //          type:Array    
+  //          type:Array
   //      }
   //  }
 }
@@ -118,7 +118,7 @@ export default {
     color: #666;
 }
 .title{
-	font-size:0.12rem 
+	font-size:0.12rem
 }
 .banner_b{
 	display: flex;
@@ -137,6 +137,3 @@ export default {
 }
 
 </style>
-
-
-
