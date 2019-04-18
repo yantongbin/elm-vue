@@ -1,5 +1,5 @@
 <template>
     <div>
-        我是商品页面
+        我是商品
     </div>
 </template>
