@@ -23,6 +23,7 @@ export default new VueRouter({
     },
     { path: '/login', component: () => import('../page/login/login.vue') },
     { path: '/shop', component: () => import('../page/shoppingCenter/shop.vue') },
-    { path: '*', redirect: ('/mysetting') }
+    { path: '*', redirect: ('/mysetting') },
+    { path: '/city',component: () => import('../page/city/city.vue')}
   ]
 })
