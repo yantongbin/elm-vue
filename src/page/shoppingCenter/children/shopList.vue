@@ -45,58 +45,58 @@
   </div>
 </template>
 <script>
-import Axios from "axios";
+import Axios from 'axios'
 export default {
-  data() {
+  data () {
     return {
       value: 0,
-      imageURL: "",
+      imageURL: '',
       category: [],
       shopList: [],
       imageURL: [],
       show: false,
       actions: [
         {
-          name: "选项"
+          name: '选项'
         }
       ]
-    };
+    }
   },
   computed: {},
   methods: {
-    onClickMiniBtn() {
-      this.show = true;
+    onClickMiniBtn () {
+      this.show = true
     },
-    onClickBigBtn() {},
-    onSelect(item) {
+    onClickBigBtn () {},
+    onSelect (item) {
       // 点击选项时默认不会关闭菜单，可以手动关闭
-      this.show = false;
-      Toast(item.name);
+      this.show = false
+      Toast(item.name)
     },
-    getList() {
-      Axios.get("https://elm.cangdu.org/shopping/v2/menu", {
+    getList () {
+      Axios.get('https://elm.cangdu.org/shopping/v2/menu', {
         params: {
           restaurant_id: 1
         }
       }).then(res => {
-        let data = res.data;
+        let data = res.data
         if (res.status === 200) {
-          this.category = data;
-          console.log(this.category);
+          this.category = data
+          console.log(this.category)
           for (var i = 0; i < 10; i++) {
-            this.shopList = data[4].foods;
+            this.shopList = data[4].foods
           }
-          console.log(this.shopList);
+          console.log(this.shopList)
         } else {
-          alert(msg);
+          alert(msg)
         }
-      });
+      })
     }
   },
-  created() {
-    this.getList();
+  created () {
+    this.getList()
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -130,4 +130,3 @@ export default {
   position: relative;
 }
 </style>
-

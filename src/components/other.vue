@@ -30,10 +30,10 @@
 </template>
 <script>
 export default {
-    data(){
+  data () {
 
-    }
-    
+  }
+
 }
 </script>
 <style>
@@ -69,7 +69,7 @@ export default {
 .member{
     display: flex;
    justify-content: space-around;
-   
+
 }
 .member a{
 	/* display: flex; */
@@ -99,5 +99,3 @@ export default {
 }
 
 </style>
-
-

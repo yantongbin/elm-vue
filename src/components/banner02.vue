@@ -29,8 +29,8 @@
 import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css' 
 export default {
-  mounted() {
-    new Swiper(".swiper-container", {
+  mounted () {
+    new Swiper('.swiper-container', {
       loop: true,
       spaceBetween: 30,
       centeredSlides: true,
@@ -39,26 +39,22 @@ export default {
         disableOnInteraction: false
       },
       pagination: {
-        el: ".swiper-pagination",
+        el: '.swiper-pagination',
         clickable: true
       }
-    });
+    })
   }
-};
+}
 </script>
 <style>
 .swiper-slide{
     width: 3.6rem;
 	height: .9rem;
     text-align: center;
-    
-    
+
 }
 .swiper-slide img{
 	height: 0.9rem;
 }
 
-
 </style>
-
-
