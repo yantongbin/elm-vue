@@ -22,7 +22,14 @@ export default new VueRouter({
       ]
     },
     { path: '/login', component: () => import('../page/login/login.vue') },
-    { path: '/shop', component: () => import('../page/shoppingCenter/shop.vue') },
+    { path: '/shop',
+      component: () => import('../page/shoppingCenter/shop.vue'),
+      children: [
+        { path: 'shoplist', component: () => import('../page/shoppingCenter/children/shopList.vue') },
+        { path: 'shopevaluate', component: () => import('../page/shoppingCenter/children/shopEvaluate.vue') },
+        { path: 'merchant', component: () => import('../page/shoppingCenter/children/merchant.vue') }
+      ]
+    },
     { path: '*', redirect: ('/mysetting') },
     { path: '/city',component: () => import('../page/city/city.vue')}
   ]

@@ -120,11 +120,9 @@
   </div>
 </template>
 
-
- <script>
-export default {};
+<script>
+export default {}
 </script>
-
 
  <style scoped>
    *,
@@ -504,12 +502,9 @@ section.parts {
   line-height: 14px;
 }
 
-
-
 .svg-next {
   height: 8px;
   width: 4px;
   margin-left: 5px;
 }
 </style>
-
