@@ -24,7 +24,7 @@
         :key="items.id"
         class="tab"
         :class="{'active': tabName === items.id}"
-        style="left:0%"
+        :style="shopTab"
         @click="changeType(items)"
       >
         <p>{{items.name}}</p>
@@ -46,25 +46,23 @@ export default {
       tabName: this.$route.path.substring(6)
     }
   },
-  // computed: {
-  //   shopTab() {
-  //     let obj = { left: "9%" };
-  //     if (this.tabName === 'shoplist') {
-  //       obj.left = "9%";
-  //     } else if (this.tabName === 'shopevaluate') {
-  //       obj.left = "42%";
-  //     } else if (this.tabName === 'merchant') {
-  //       obj.left = "75%";
-  //     }
-  //     console.log(obj);
-  //     return obj
-  //   }
-  // },
+  computed: {
+    shopTab() {
+      let obj = { left: "9%" };
+      if (this.tabName === 'shoplist') {
+        obj.left = "9%";
+      } else if (this.tabName === 'shopevaluate') {
+        obj.left = "42%";
+      } else if (this.tabName === 'merchant') {
+        obj.left = "75%";
+      }
+      return obj
+    }
+  },
   methods: {
     changeType(item) {
       this.tabName = item.id;
-      this.$router.push(item.src);
-      console.log(this.tabName)
+      this.$router.push(item.href);
     }
   }
 };
