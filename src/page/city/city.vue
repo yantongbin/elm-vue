@@ -1,11 +1,10 @@
 <template>
 <div id="app">
   <div class="city-list">
-    <van-nav-bar
-      title="城市选择"
-      left-text="返回"
-      left-arrow
-    />
+    <div class="navHeader">
+      <router-link tag='a' to='/fristPage' class="fan">返回</router-link>
+      <span class="CitySelection">城市选择</span>
+    </div>
     <div class="lv-indexlist">
       <ul class="lv-indexlist__content" id="lv-indexlist__content">
         <div class="recommend-city">
@@ -130,6 +129,26 @@ export default {
 body,html{height: 100%;}
 #app{
   height: 100%;
+}
+.navHeader{
+  width: 100%;
+  height: 46px;
+  line-height: 46px;
+  background: #0085ff;
+  font-size: 16px;
+  color: #fff
+}
+.fan{
+  color: #fff;
+  padding: 12px
+}
+
+.CitySelection{
+  padding: 90px;
+  font-size: 18px;
+}
+.city{
+  text-align: center
 }
 .city-list {
   display: flex;

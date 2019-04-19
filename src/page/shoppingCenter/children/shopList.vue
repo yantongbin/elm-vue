@@ -59,7 +59,7 @@
 </template>
 <script>
 import Axios from 'axios'
-import { constants } from 'crypto';
+import { constants } from 'crypto'
 export default {
   data () {
     return {
@@ -78,11 +78,11 @@ export default {
   },
   computed: {
     goodCatNum () {
-      var total = 0;
-      this.catData.map( item => {
+      var total = 0
+      this.catData.map(item => {
         total += item.num
-      });
-      return total;
+      })
+      return total
     }
   },
   methods: {
@@ -111,28 +111,28 @@ export default {
       })
     },
     add (data) {
-      var index = this.catData.findIndex(item => item.item_id === data.item_id);
-      
-      if(index > -1){
+      var index = this.catData.findIndex(item => item.item_id === data.item_id)
+
+      if (index > -1) {
         this.catData[index].num += 1
-      }else{
+      } else {
         this.catData.push(Object.assign({}, data, { num: 1 }))
       }
     },
     ceil (data) {
-      var index = this.catData.findIndex(item => item.item_id === data.item_id);
-      if(index > -1){
-        if(this.catData[index].num === 1){
-          this.catData.splice(index, 1);
-        }else{
+      var index = this.catData.findIndex(item => item.item_id === data.item_id)
+      if (index > -1) {
+        if (this.catData[index].num === 1) {
+          this.catData.splice(index, 1)
+        } else {
           this.catData[index].num -= 1
         }
       }
     },
     showNum (foods) {
       var information = null
-      information = this.catData.find( item =>  item.item_id == foods.item_id );
-      return information ? information.num : " "
+      information = this.catData.find(item => item.item_id == foods.item_id)
+      return information ? information.num : ' '
     }
   },
   created () {
