@@ -31,6 +31,7 @@ export default new VueRouter({
       ]
     },
     { path: '*', redirect: ('/mysetting') },
-    { path: '/city',component: () => import('../page/city/city.vue')}
+    { path: '/city',component: () => import('../page/city/city.vue')},
+    { path:'/Goldmall',component: () => import('../page/Goldmall/Goldmall.vue')}
   ]
 })
