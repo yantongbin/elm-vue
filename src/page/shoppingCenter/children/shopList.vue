@@ -23,8 +23,9 @@
               <div slot="price">￥{{foods.satisfy_rate}}</div>
               <div slot="tags" style="margin-bottom:20px; margin-top: 5px;"></div>
               <div slot="footer">
-                <van-stepper v-model="value"/>
-                <!-- <van-button round type="danger" size="mini" style="background-color: #ddd; border:0; color: #fff" click="chageType">+</van-button> -->
+                <van-button size="mini" @click="ceil(shopList)">-</van-button>
+                <span></span>
+                <van-button size="mini" @click="add(shopList)">+</van-button>
               </div>
             </van-card>
           </li>
@@ -33,8 +34,32 @@
     </div>
     <div class="footer">
       <div class="footer-list">
-        <van-actionsheet v-model="show" :actions="actions" @select="onSelect" style="margin-bottom:50px;">
-          <div class="main"></div>
+        <van-actionsheet v-model="show" title="购物车" style="margin-bottom:50px;">
+          <div class="content">
+            <ul>
+              <li>
+                <span class="main-title">商品</span>
+                <i class="main-ceil">￥</i>
+                <van-button size="mini">-</van-button>
+                <span>1</span>
+                <van-button size="mini">+</van-button>
+              </li>
+              <li>
+                <span class="main-title">商品</span>
+                <i class="main-ceil">￥</i>
+                <van-button size="mini">-</van-button>
+                <span>1</span>
+                <van-button size="mini">+</van-button>
+              </li>
+              <li>
+                <span class="main-title">商品</span>
+                <i class="main-ceil">￥</i>
+                <van-button size="mini">-</van-button>
+                <span>1</span>
+                <van-button size="mini">+</van-button>
+              </li>
+            </ul>
+          </div>
         </van-actionsheet>
       </div>
       <van-goods-action style="z-index:9999">
@@ -53,13 +78,13 @@ export default {
       imageURL: '',
       category: [],
       shopList: [],
-      imageURL: [],
       show: false,
       actions: [
         {
           name: '选项'
         }
-      ]
+      ],
+      catData: []
     }
   },
   computed: {},
@@ -68,10 +93,8 @@ export default {
       this.show = true
     },
     onClickBigBtn () {},
-    onSelect (item) {
-      // 点击选项时默认不会关闭菜单，可以手动关闭
+    onSelect () {
       this.show = false
-      Toast(item.name)
     },
     getList () {
       Axios.get('https://elm.cangdu.org/shopping/v2/menu', {
@@ -82,15 +105,25 @@ export default {
         let data = res.data
         if (res.status === 200) {
           this.category = data
-          console.log(this.category)
           for (var i = 0; i < 10; i++) {
             this.shopList = data[4].foods
           }
-          console.log(this.shopList)
         } else {
-          alert(msg)
+          alert('msg')
         }
       })
+    },
+    add (data) {
+      var index = this.catData.findIndex(item => item.id === data.id);
+      if(index > -1){
+        this.catData[index].num += 1
+      }else{
+        this.catData.push(Object.assign({}, data, { num: 1 }))
+      }
+      console.log(this.catData);
+    },
+    ceil (data) {
+
     }
   },
   created () {
@@ -126,7 +159,27 @@ export default {
     }
   }
 }
-.footer{
+.footer {
   position: relative;
+  .footer-list {
+    .content {
+      ul {
+        li {
+          padding: 7px 0;
+          padding-right: 12px;
+          display: flex;
+          .main-title {
+            flex: 5.5;
+          }
+          .main-ceil {
+            flex: 2.5;
+          }
+          .main-num {
+            flex: 3;
+          }
+        }
+      }
+    }
+  }
 }
 </style>
