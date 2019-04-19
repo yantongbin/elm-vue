@@ -2,14 +2,14 @@
   <div class="discover">
     <section class="parts unmerge">
       <div class="entry list3">
-        <a href="https://h5.ele.me/exchange/" class>
+        <router-link to="/Goldmall" class>
           <div class="content-wrapper">
             <p class="title" style="color: rgb(255, 153, 0);">金币商城</p>
             <p class="tips">0元好物在这里</p>
           </div>
           <img loading class="icon" src="https://fuss10.elemecdn.com/8/38/9c9aea0e856149083d84af3444b78jpeg.jpeg?imageMogr/format/webp/">
           <img style="display: none;">
-        </a>
+        </router-link>
         <a href="https://h5.ele.me/commend/#/" class>
           <div class="content-wrapper">
             <p class="title" style="color: rgb(27, 169, 225);">推荐有奖</p>

@@ -48,10 +48,10 @@
       <div class="gold-shop">
         <a href="##" class="adders-click">
           <i class="iconfont icon-shangcheng"></i>
-          <div class="title">
+          <router-link tag="div" to="/Goldmall" class="title">
             金币商城
             <i class="iconfont icon-icon1"></i>
-          </div>
+          </router-link>
         </a>
       </div>
       <div class="share-active">
