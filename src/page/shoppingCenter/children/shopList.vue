@@ -3,14 +3,14 @@
     <div class="menu">
       <div class="menu-left">
         <ul>
-          <li class="list" v-for="item in category" :key="item.id">
+          <li class="list" v-for="item in category" :key="item.item_id">
             <span>{{item.name}}</span>
           </li>
         </ul>
       </div>
       <div class="menu-right" style="margin-bottom: 50px">
         <ul>
-          <li v-for="foods in shopList" :key="foods.item_id">
+          <li v-for="foods in shopList" :key="foods.name">
             <van-card
               tag="标签"
               desc="描述信息"
@@ -23,9 +23,9 @@
               <div slot="price">￥{{foods.satisfy_rate}}</div>
               <div slot="tags" style="margin-bottom:20px; margin-top: 5px;"></div>
               <div slot="footer">
-                <van-button size="mini" @click="ceil(shopList)">-</van-button>
-                <span></span>
-                <van-button size="mini" @click="add(shopList)">+</van-button>
+                <van-button size="mini" @click="ceil(foods)">-</van-button>
+                <span> {{showNum(foods)}} </span>
+                <van-button size="mini" @click="add(foods)">+</van-button>
               </div>
             </van-card>
           </li>
@@ -37,25 +37,13 @@
         <van-actionsheet v-model="show" title="购物车" style="margin-bottom:50px;">
           <div class="content">
             <ul>
-              <li>
-                <span class="main-title">商品</span>
-                <i class="main-ceil">￥</i>
+              <li v-for="(good, index) in catData"
+                  :key="index"
+              >
+                <span class="main-title"> {{good.name}} </span>
+                <i class="main-ceil">￥ {{good.satisfy_rate}} </i>
                 <van-button size="mini">-</van-button>
-                <span>1</span>
-                <van-button size="mini">+</van-button>
-              </li>
-              <li>
-                <span class="main-title">商品</span>
-                <i class="main-ceil">￥</i>
-                <van-button size="mini">-</van-button>
-                <span>1</span>
-                <van-button size="mini">+</van-button>
-              </li>
-              <li>
-                <span class="main-title">商品</span>
-                <i class="main-ceil">￥</i>
-                <van-button size="mini">-</van-button>
-                <span>1</span>
+                <span> {{good.num}} </span>
                 <van-button size="mini">+</van-button>
               </li>
             </ul>
@@ -63,7 +51,7 @@
         </van-actionsheet>
       </div>
       <van-goods-action style="z-index:9999">
-        <van-goods-action-mini-btn icon="cart-o" text="购物车" @click="onClickMiniBtn"/>
+        <van-goods-action-mini-btn icon="cart-o" text="购物车" @click="onClickMiniBtn" :info="goodCatNum"/>
         <van-goods-action-big-btn primary text="立即购买" @click="onClickBigBtn" to="/orderform"/>
       </van-goods-action>
     </div>
@@ -71,6 +59,7 @@
 </template>
 <script>
 import Axios from 'axios'
+import { constants } from 'crypto';
 export default {
   data () {
     return {
@@ -87,7 +76,15 @@ export default {
       catData: []
     }
   },
-  computed: {},
+  computed: {
+    goodCatNum () {
+      var total = 0;
+      this.catData.map( item => {
+        total += item.num
+      });
+      return total;
+    }
+  },
   methods: {
     onClickMiniBtn () {
       this.show = true
@@ -114,16 +111,28 @@ export default {
       })
     },
     add (data) {
-      var index = this.catData.findIndex(item => item.id === data.id);
+      var index = this.catData.findIndex(item => item.item_id === data.item_id);
+      
       if(index > -1){
         this.catData[index].num += 1
       }else{
         this.catData.push(Object.assign({}, data, { num: 1 }))
       }
-      console.log(this.catData);
     },
     ceil (data) {
-
+      var index = this.catData.findIndex(item => item.item_id === data.item_id);
+      if(index > -1){
+        if(this.catData[index].num === 1){
+          this.catData.splice(index, 1);
+        }else{
+          this.catData[index].num -= 1
+        }
+      }
+    },
+    showNum (foods) {
+      var information = null
+      information = this.catData.find( item =>  item.item_id == foods.item_id );
+      return information ? information.num : " "
     }
   },
   created () {

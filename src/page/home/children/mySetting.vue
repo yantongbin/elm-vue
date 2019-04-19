@@ -6,7 +6,7 @@
           <img src="images/index.jpg" alt>
         </div>
         <div class="connect-title">
-          <p class="userNum">登录/注册</p>
+          <router-link tag="p" to="/login" class="userNum">登录/注册</router-link>
           <p class="userTelphone">
             <i class="iconfont icon-shouji"></i>
             <span class="telephone">登陆后可获取更多特权</span>
