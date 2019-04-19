@@ -5,7 +5,6 @@
       title="城市选择"
       left-text="返回"
       left-arrow
-
     />
     <div class="lv-indexlist">
       <ul class="lv-indexlist__content" id="lv-indexlist__content">
