@@ -31,7 +31,7 @@
         <span></span>&nbsp;&nbsp;&nbsp;&nbsp;推荐商家&nbsp;&nbsp;&nbsp;&nbsp;
         <span></span>
       </div>
-      
+
       <div class="list_c">
         <ul>
           <li>
@@ -61,8 +61,8 @@
 import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 export default {
-  mounted() {
-    new Swiper(".swiper-container", {
+  mounted () {
+    new Swiper('.swiper-container', {
       loop: true,
       spaceBetween: 30,
       centeredSlides: true,
@@ -71,12 +71,12 @@ export default {
         disableOnInteraction: false
       },
       pagination: {
-        el: ".swiper-pagination",
+        el: '.swiper-pagination',
         clickable: true
       }
-    });
+    })
   }
-};
+}
 </script>
 <style>
 .swiper-slide {
