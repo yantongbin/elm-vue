@@ -77,26 +77,13 @@ export default {
           pageSize: this.pageSize
         }
       }).then(res => {
-<<<<<<< HEAD
         let datas = res.data;
         if(res.status===200){
           this.list=datas
-          console.log(datas);
         }else{
           alert(datas.statusText)
         }
       });
-=======
-        let datas = res.data
-        console.log(res)
-        if (res.status === 200) {
-          this.list = data.array.name
-        } else {
-          alert(datas.statusText)
-        }
-        // console.log(res)
-      })
->>>>>>> 0341db0e77b2f9efd492cf3446d353814c5042f2
     }
   },
   created () {
