@@ -1,6 +1,7 @@
 <template>
     <div>
-       <div class="list_b">
+       <div class="list_b" v-for=" data in list"
+       :key="data.name">
        <div class="seller_t">
        <img
              src="https://fuss10.elemecdn.com/4/ee/15627ce26bf60533e459b0299c9edpng.png?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/"  >

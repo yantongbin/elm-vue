@@ -23,9 +23,9 @@
               <div slot="price">￥{{foods.satisfy_rate}}</div>
               <div slot="tags" style="margin-bottom:20px; margin-top: 5px;"></div>
               <div slot="footer">
-                <van-button size="mini" @click="ceil(foods)">-</van-button>
-                <span> {{showNum(foods)}} </span>
-                <van-button size="mini" @click="add(foods)">+</van-button>
+                <van-button size="mini" @click="catReduce(foods)">-</van-button>
+                <span>{{showNum(foods)}}</span>
+                <van-button size="mini" @click="catAdd(foods)">+</van-button>
               </div>
             </van-card>
           </li>
@@ -37,13 +37,11 @@
         <van-actionsheet v-model="show" title="购物车" style="margin-bottom:50px;">
           <div class="content">
             <ul>
-              <li v-for="(good, index) in catData"
-                  :key="index"
-              >
-                <span class="main-title"> {{good.name}} </span>
-                <i class="main-ceil">￥ {{good.satisfy_rate}} </i>
+              <li v-for="(good, index) in catData" :key="index">
+                <span class="main-title">{{good.name}}</span>
+                <i class="main-ceil">￥ {{good.satisfy_rate}}</i>
                 <van-button size="mini">-</van-button>
-                <span> {{good.num}} </span>
+                <span>{{good.num}}</span>
                 <van-button size="mini">+</van-button>
               </li>
             </ul>
@@ -51,7 +49,12 @@
         </van-actionsheet>
       </div>
       <van-goods-action style="z-index:9999">
-        <van-goods-action-mini-btn icon="cart-o" text="购物车" @click="onClickMiniBtn" :info="goodCatNum"/>
+        <van-goods-action-mini-btn
+          icon="cart-o"
+          text="购物车"
+          @click="onClickMiniBtn"
+          :info="goodCatNum"
+        />
         <van-goods-action-big-btn primary text="立即购买" @click="onClickBigBtn" to="/orderform"/>
       </van-goods-action>
     </div>
@@ -59,7 +62,7 @@
 </template>
 <script>
 import Axios from 'axios'
-import { constants } from 'crypto';
+import { mapState, mapMutations, mapGetters } from 'vuex'
 export default {
   data () {
     return {
@@ -72,20 +75,15 @@ export default {
         {
           name: '选项'
         }
-      ],
-      catData: []
+      ]
     }
   },
   computed: {
-    goodCatNum () {
-      var total = 0;
-      this.catData.map( item => {
-        total += item.num
-      });
-      return total;
-    }
+    ...mapState(['name', 'msg', 'age', 'catData']), // 展开运算符
+    ...mapGetters(['goodCatNum'])
   },
   methods: {
+    ...mapMutations(['catAdd', 'catReduce']),
     onClickMiniBtn () {
       this.show = true
     },
@@ -110,32 +108,14 @@ export default {
         }
       })
     },
-    add (data) {
-      var index = this.catData.findIndex(item => item.item_id === data.item_id);
-      
-      if(index > -1){
-        this.catData[index].num += 1
-      }else{
-        this.catData.push(Object.assign({}, data, { num: 1 }))
-      }
-    },
-    ceil (data) {
-      var index = this.catData.findIndex(item => item.item_id === data.item_id);
-      if(index > -1){
-        if(this.catData[index].num === 1){
-          this.catData.splice(index, 1);
-        }else{
-          this.catData[index].num -= 1
-        }
-      }
-    },
     showNum (foods) {
       var information = null
-      information = this.catData.find( item =>  item.item_id == foods.item_id );
-      return information ? information.num : " "
+      information = this.$store.state.catData.find(item => item.item_id == foods.item_id)
+      return information ? information.num : ' '
     }
   },
   created () {
+    console.log(this.msg)
     this.getList()
   }
 }
