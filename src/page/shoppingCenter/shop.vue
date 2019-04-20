@@ -1,6 +1,9 @@
 <template>
   <div>
     <div class="header">
+      <div>
+        <i class="iconfont icon-icon1"></i>
+      </div>
       <div class="header-top">
         <span class="background-img index"></span>
       </div>
