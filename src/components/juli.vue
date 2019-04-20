@@ -1,20 +1,21 @@
 <template>
     <div>
-       <div class="list_b" v-for=" data in list"
-       :key="data.name">
+       <div class="list_b" v-for="item in list"
+       :key="item.name">
        <div class="seller_t">
-       <img
-             src="https://fuss10.elemecdn.com/4/ee/15627ce26bf60533e459b0299c9edpng.png?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/"  >
+          <img
+          :src="'//elm.cangdu.org/img/'+
+item.image_path"  >
       <div class="seller_t_r">
          <div class="seller_t_r1">
            <h3>
             <span>品牌</span>
-            <span>尊宝比萨 （黄田店）</span>
+            <span>{{item.name}}</span>
            </h3>
         </div>
          <div class="seller_t_r2">
            <span>☆ ☆ ☆ ☆ ☆</span>
-          <span>4.8</span>
+          <span>{{item.rating}}</span>
          <span>月售296单</span>
          </div>
          <div class="seller_t_r3">
@@ -77,14 +78,12 @@ export default {
         }
       }).then(res => {
         let datas = res.data;
-        console.log(res);
         if(res.status===200){
-          this.list=data.array.name
-
+          this.list=datas
+          console.log(datas);
         }else{
           alert(datas.statusText)
         }
-        // console.log(res)
       });
     }
   },
