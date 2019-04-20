@@ -30,6 +30,8 @@ export default new VueRouter({
         { path: 'merchant', component: () => import('../page/shoppingCenter/children/merchant.vue') }
       ]
     },
-    { path: '*', redirect: ('/mysetting') }
+    { path: '*', redirect: ('/mysetting') },
+    { path: '/city',component: () => import('../page/city/city.vue')},
+    { path:'/Goldmall',component: () => import('../page/Goldmall/Goldmall.vue')}
   ]
 })

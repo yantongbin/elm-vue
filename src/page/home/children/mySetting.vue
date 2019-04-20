@@ -6,7 +6,7 @@
           <img src="images/index.jpg" alt>
         </div>
         <div class="connect-title">
-          <p class="userNum">登录/注册</p>
+          <router-link tag="p" to="/login" class="userNum">登录/注册</router-link>
           <p class="userTelphone">
             <i class="iconfont icon-shouji"></i>
             <span class="telephone">登陆后可获取更多特权</span>
@@ -48,10 +48,10 @@
       <div class="gold-shop">
         <a href="##" class="adders-click">
           <i class="iconfont icon-shangcheng"></i>
-          <div class="title">
+          <router-link tag="div" to="/Goldmall" class="title">
             金币商城
             <i class="iconfont icon-icon1"></i>
-          </div>
+          </router-link>
         </a>
       </div>
       <div class="share-active">

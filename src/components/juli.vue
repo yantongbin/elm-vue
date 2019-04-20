@@ -1,105 +1,71 @@
 <template>
     <div>
-  <div class="list_b">
-    <div class="seller_t">
-      <img
-        src="https://fuss10.elemecdn.com/4/ee/15627ce26bf60533e459b0299c9edpng.png?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/"
-      >
+       <div class="list_b">
+       <div class="seller_t">
+       <img
+             src="https://fuss10.elemecdn.com/4/ee/15627ce26bf60533e459b0299c9edpng.png?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/"  >
       <div class="seller_t_r">
-        <div class="seller_t_r1">
-          <h3>
+         <div class="seller_t_r1">
+           <h3>
             <span>品牌</span>
             <span>尊宝比萨 （黄田店）</span>
-          </h3>
-          <span>···</span>
+           </h3>
         </div>
-        <div class="seller_t_r2">
-          <span>☆ ☆ ☆ ☆ ☆</span>
+         <div class="seller_t_r2">
+           <span>☆ ☆ ☆ ☆ ☆</span>
           <span>4.8</span>
-          <span>月售296单</span>
-        </div>
-        <div class="seller_t_r3">
+         <span>月售296单</span>
+         </div>
+         <div class="seller_t_r3">
           <div>
-            <span>20 起送 |</span>
-            <span>免配送费</span>
+             <span>20 起送 |</span>
+             <span>免配送费</span>
           </div>
           <div>
-            <span>2.26km |</span>
-            <span>46分钟</span>
-          </div>
-        </div>
-      </div>
+             <span>2.26km |</span>
+             <span>46分钟</span>
+           </div>
+       </div>
+       </div>
     </div>
 
-    <div class="seller_b">
-      <div class="seller_b1">
-        <span>排骨饭</span>
-        <span>品质联盟</span>
-      </div>
-      <div class="seller_b2"></div>
+     <div class="seller_b">
+       <div class="seller_b1">
+         <span>排骨饭</span>
+         <span>品质联盟</span>
+       </div>
+     <div class="seller_b2"></div>
       <div class="seller_b3">
-        <div class="seller_b3l">
-          <div>
-            <span>减</span> 满29减12，满49减25，满69减35，满99减42
+         <div class="seller_b3l">
+           <div>
+             <span>减</span> 满29减12，满49减25，满69减35，满99减42
           </div>
-          <div>
-            <span>折</span> 特价商品0.99元起
-          </div>
-        </div>
-        <div class="seller_b3r">
-          5个活动
-          <i class="iconfont icon-xiajiantou"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-  <van-list
-  v-model="loading"
-  :finished="finished"
-  finished-text="没有更多了"
-  loading-text="拼命中"
-  @load="onLoad"
->
-  <van-cell
-    v-for="item in list"
-    :key="item.id"
-    :title="item.name"
-  />
-</van-list>
-  </div>
+           <div>
+             <span>折</span> 特价商品0.99元起
+           </div>
+         </div>
+      <div class="seller_b3r">
+           5个活动
+           <i class="iconfont icon-xiajiantou"></i>
+         </div>
+       </div>
+     </div>
+   </div>
+   </div>
 </template>
 <script>
 import Axios from "axios";
 export default {
   data() {
     return {
-     loading: true, //是否请求数据
-    // finished: false,//代表数据是否没有更多
-      pageNum: 0,
-      pageSize: 10,
-      totalSize: 10,
+
       list: []//商家列表
     };
   },
   computed:{
-      totalPage(){
-          return Math.ceil(this.totalSize/this.pageSize)
-
-      },
-      finished(){
-        return this.pageNum>=this.totalPage
-
-      }
 
   },
   methods: {
-    //   加载数据
-      onLoad(){
-          this.pageNum++;
-          console.log("加载数据中")
-
-      },
-
     getData() {
       Axios.get("https://elm.cangdu.org/shopping/restaurants", {
         params: {
@@ -109,13 +75,15 @@ export default {
           pageSize: this.pageSize
         }
       }).then(res => {
-        let data = res.data;
-        this.totalSize = data.length;
-        this.list = data.splice(
-          (this.pageNum - 1) * this.pageSize,this.pageSize);
-        console.log(data);
-        this.loading="false";
-        // console.log(res);
+        let datas = res.data;
+        console.log(res);
+        if(res.status===200){
+          this.list=data.array.name
+
+        }else{
+          alert(datas.statusText)
+        }
+        // console.log(res)
       });
     }
   },

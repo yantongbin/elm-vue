@@ -3,14 +3,14 @@
     <div class="menu">
       <div class="menu-left">
         <ul>
-          <li class="list" v-for="item in category" :key="item.id">
+          <li class="list" v-for="item in category" :key="item.item_id">
             <span>{{item.name}}</span>
           </li>
         </ul>
       </div>
       <div class="menu-right" style="margin-bottom: 50px">
         <ul>
-          <li v-for="foods in shopList" :key="foods.item_id">
+          <li v-for="foods in shopList" :key="foods.name">
             <van-card
               tag="标签"
               desc="描述信息"
@@ -23,8 +23,9 @@
               <div slot="price">￥{{foods.satisfy_rate}}</div>
               <div slot="tags" style="margin-bottom:20px; margin-top: 5px;"></div>
               <div slot="footer">
-                <van-stepper v-model="value"/>
-                <!-- <van-button round type="danger" size="mini" style="background-color: #ddd; border:0; color: #fff" click="chageType">+</van-button> -->
+                <van-button size="mini" @click="ceil(foods)">-</van-button>
+                <span> {{showNum(foods)}} </span>
+                <van-button size="mini" @click="add(foods)">+</van-button>
               </div>
             </van-card>
           </li>
@@ -33,12 +34,24 @@
     </div>
     <div class="footer">
       <div class="footer-list">
-        <van-actionsheet v-model="show" :actions="actions" @select="onSelect" style="margin-bottom:50px;">
-          <div class="main"></div>
+        <van-actionsheet v-model="show" title="购物车" style="margin-bottom:50px;">
+          <div class="content">
+            <ul>
+              <li v-for="(good, index) in catData"
+                  :key="index"
+              >
+                <span class="main-title"> {{good.name}} </span>
+                <i class="main-ceil">￥ {{good.satisfy_rate}} </i>
+                <van-button size="mini">-</van-button>
+                <span> {{good.num}} </span>
+                <van-button size="mini">+</van-button>
+              </li>
+            </ul>
+          </div>
         </van-actionsheet>
       </div>
       <van-goods-action style="z-index:9999">
-        <van-goods-action-mini-btn icon="cart-o" text="购物车" @click="onClickMiniBtn"/>
+        <van-goods-action-mini-btn icon="cart-o" text="购物车" @click="onClickMiniBtn" :info="goodCatNum"/>
         <van-goods-action-big-btn primary text="立即购买" @click="onClickBigBtn" to="/orderform"/>
       </van-goods-action>
     </div>
@@ -46,6 +59,7 @@
 </template>
 <script>
 import Axios from 'axios'
+import { constants } from 'crypto';
 export default {
   data () {
     return {
@@ -53,25 +67,31 @@ export default {
       imageURL: '',
       category: [],
       shopList: [],
-      imageURL: [],
       show: false,
       actions: [
         {
           name: '选项'
         }
-      ]
+      ],
+      catData: []
     }
   },
-  computed: {},
+  computed: {
+    goodCatNum () {
+      var total = 0;
+      this.catData.map( item => {
+        total += item.num
+      });
+      return total;
+    }
+  },
   methods: {
     onClickMiniBtn () {
       this.show = true
     },
     onClickBigBtn () {},
-    onSelect (item) {
-      // 点击选项时默认不会关闭菜单，可以手动关闭
+    onSelect () {
       this.show = false
-      Toast(item.name)
     },
     getList () {
       Axios.get('https://elm.cangdu.org/shopping/v2/menu', {
@@ -82,15 +102,37 @@ export default {
         let data = res.data
         if (res.status === 200) {
           this.category = data
-          console.log(this.category)
           for (var i = 0; i < 10; i++) {
             this.shopList = data[4].foods
           }
-          console.log(this.shopList)
         } else {
-          alert(msg)
+          alert('msg')
         }
       })
+    },
+    add (data) {
+      var index = this.catData.findIndex(item => item.item_id === data.item_id);
+      
+      if(index > -1){
+        this.catData[index].num += 1
+      }else{
+        this.catData.push(Object.assign({}, data, { num: 1 }))
+      }
+    },
+    ceil (data) {
+      var index = this.catData.findIndex(item => item.item_id === data.item_id);
+      if(index > -1){
+        if(this.catData[index].num === 1){
+          this.catData.splice(index, 1);
+        }else{
+          this.catData[index].num -= 1
+        }
+      }
+    },
+    showNum (foods) {
+      var information = null
+      information = this.catData.find( item =>  item.item_id == foods.item_id );
+      return information ? information.num : " "
     }
   },
   created () {
@@ -126,7 +168,27 @@ export default {
     }
   }
 }
-.footer{
+.footer {
   position: relative;
+  .footer-list {
+    .content {
+      ul {
+        li {
+          padding: 7px 0;
+          padding-right: 12px;
+          display: flex;
+          .main-title {
+            flex: 5.5;
+          }
+          .main-ceil {
+            flex: 2.5;
+          }
+          .main-num {
+            flex: 3;
+          }
+        }
+      }
+    }
+  }
 }
 </style>

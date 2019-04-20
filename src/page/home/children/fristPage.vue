@@ -16,6 +16,13 @@ import banner02 from '../../../components/banner02'
 import juli from '../../../components/juli'
 // import Axios from 'axios'
 export default {
+  props:{
+    lists:{
+      type:Array
+      
+    }
+
+  },
   data () {
     return {
     }

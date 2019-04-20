@@ -2,20 +2,20 @@
   <div class="discover">
     <section class="parts unmerge">
       <div class="entry list3">
-        <a href="https://h5.ele.me/exchange/" class>
+        <router-link to="/Goldmall" class>
           <div class="content-wrapper">
             <p class="title" style="color: rgb(255, 153, 0);">金币商城</p>
             <p class="tips">0元好物在这里</p>
           </div>
-          <img loading class="icon" src="9c9aea0e856149083d84af3444b78jpeg.jpeg">
+          <img loading class="icon" src="https://fuss10.elemecdn.com/8/38/9c9aea0e856149083d84af3444b78jpeg.jpeg?imageMogr/format/webp/">
           <img style="display: none;">
-        </a>
+        </router-link>
         <a href="https://h5.ele.me/commend/#/" class>
           <div class="content-wrapper">
             <p class="title" style="color: rgb(27, 169, 225);">推荐有奖</p>
             <p class="tips">10元现金拿不停</p>
           </div>
-          <img loading class="icon" src="7232274c3c1934861abb86ba32b7bjpeg.jpeg">
+          <img loading class="icon" src="https://fuss10.elemecdn.com/5/72/7232274c3c1934861abb86ba32b7bjpeg.jpeg?imageMogr/format/webp/">
           <img style="display: none;">
         </a>
         <a href="/discover/koubei/" class>
@@ -23,7 +23,7 @@
             <p class="title" style="color: rgb(237, 102, 96);">周边优惠</p>
             <p class="tips">领取口碑好券</p>
           </div>
-          <img loading class="icon" src="2351e989d4171479ba0d7b5c06053jpeg.jpeg">
+          <img loading class="icon" src="https://fuss10.elemecdn.com/5/10/2351e989d4171479ba0d7b5c06053jpeg.jpeg?imageMogr/format/webp/">
           <img style="display: none;">
         </a>
       </div>
@@ -48,7 +48,7 @@
           ubt-data-requrest_id
           class="discover-food"
         >
-          <img src="adf8ae0fd52a0eb56f4332fb61ac2jpeg.jpeg" width="324" height="322">
+          <img src="https://fuss10.elemecdn.com/7/ec/adf8ae0fd52a0eb56f4332fb61ac2jpeg.jpeg?imageMogr/format/webp/" width="324" height="322">
           <div>
             <p class="food-name ui-ellipsis">3元品质联盟红包</p>
             <div class="food-info clearfix">
@@ -70,7 +70,7 @@
           ubt-data-requrest_id
           class="discover-food"
         >
-          <img src="5c1ca7ceca079926933ca418c9eb7jpeg.jpeg" width="324" height="322">
+          <img src="https://fuss10.elemecdn.com/5/78/5c1ca7ceca079926933ca418c9eb7jpeg.jpeg?imageMogr/format/webp/" width="324" height="322">
           <div>
             <p class="food-name ui-ellipsis">扫地机器人</p>
             <div class="food-info clearfix">
@@ -92,7 +92,7 @@
           ubt-data-requrest_id
           class="discover-food"
         >
-          <img src="605a11eae79849240113271dd1b94jpeg.jpeg" width="324" height="322">
+          <img src="https://fuss10.elemecdn.com/e/b5/605a11eae79849240113271dd1b94jpeg.jpeg?imageMogr/format/webp/" width="324" height="322">
           <div>
             <p class="food-name ui-ellipsis">电动针灸按摩仪</p>
             <div class="food-info clearfix">
@@ -111,7 +111,7 @@
       <div class="activity-recommend wall-16TaH"></div>
       <!---->
       <p class="activity-more">
-        <a href="https://h5.ele.me/exchange/">查看更多</a>
+        <a href="https://h5.ele.me/exchange/" style="font-size:12px;">查看更多 ></a>
         <svg class="svg-next">
           <use xlink:href="#tab_found_next_page"></use>
         </svg>
