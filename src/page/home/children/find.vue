@@ -41,7 +41,8 @@
       </div>
       <p class="activity-sub-title">金币换豪礼</p>
       <div class="activity-body">
-        <a
+        <router-link
+          to="/shop"
           ubt-data-title="限时好礼"
           ubt-click="951"
           ubt-data-sort_index="0"
@@ -62,7 +63,7 @@
             </div>
           </div>
           <span class="discount">限时优惠</span>
-        </a>
+        </router-link>
         <a
           ubt-data-title="限时好礼"
           ubt-click="951"

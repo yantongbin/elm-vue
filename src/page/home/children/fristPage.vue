@@ -15,10 +15,10 @@ import other from '../../../components/other'
 import banner02 from '../../../components/banner02'
 import juli from '../../../components/juli'
 export default {
-  props:{
-    lists:{
-      type:Array
-      
+  props: {
+    lists: {
+      type: Array
+
     }
 
   },
@@ -31,7 +31,7 @@ export default {
     Banner: banner,
     Other: other,
     Banner02: banner02,
-    Juli:juli
+    Juli: juli
   }
 }
 </script>

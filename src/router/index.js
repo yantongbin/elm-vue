@@ -27,7 +27,8 @@ export default new VueRouter({
       children: [
         { path: 'shoplist', component: () => import('../page/shoppingCenter/children/shopList.vue') },
         { path: 'shopevaluate', component: () => import('../page/shoppingCenter/children/shopEvaluate.vue') },
-        { path: 'merchant', component: () => import('../page/shoppingCenter/children/merchant.vue') }
+        { path: 'merchant', component: () => import('../page/shoppingCenter/children/merchant.vue') },
+        { path: '', redirect: ('shoplist') }
       ]
     },
     { path: '*', redirect: ('/mysetting') },

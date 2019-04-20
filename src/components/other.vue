@@ -69,7 +69,7 @@ export default {
 
 }
 .member a{
-	
+
 	width: 3.55rem;
 	height: .4rem;
 	margin: .05rem .1rem .03rem;

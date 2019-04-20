@@ -56,20 +56,20 @@ item.image_path"  >
    </div>
 </template>
 <script>
-import Axios from "axios";
+import Axios from 'axios'
 export default {
-  data() {
+  data () {
     return {
 
-      list: []//商家列表
-    };
+      list: []// 商家列表
+    }
   },
-  computed:{
+  computed: {
 
   },
   methods: {
-    getData() {
-      Axios.get("https://elm.cangdu.org/shopping/restaurants", {
+    getData () {
+      Axios.get('https://elm.cangdu.org/shopping/restaurants', {
         params: {
           latitude: 22.61996,
           longitude: 113.843757,
@@ -77,6 +77,7 @@ export default {
           pageSize: this.pageSize
         }
       }).then(res => {
+<<<<<<< HEAD
         let datas = res.data;
         if(res.status===200){
           this.list=datas
@@ -85,12 +86,23 @@ export default {
           alert(datas.statusText)
         }
       });
+=======
+        let datas = res.data
+        console.log(res)
+        if (res.status === 200) {
+          this.list = data.array.name
+        } else {
+          alert(datas.statusText)
+        }
+        // console.log(res)
+      })
+>>>>>>> 0341db0e77b2f9efd492cf3446d353814c5042f2
     }
   },
-  created() {
-    this.getData();
+  created () {
+    this.getData()
   }
-};
+}
 </script>
 <style>
 .list_b {
@@ -164,5 +176,3 @@ export default {
   background: #f07373;
 }
 </style>
-
-
