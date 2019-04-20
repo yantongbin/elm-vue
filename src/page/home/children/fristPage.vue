@@ -4,6 +4,7 @@
         <Banner></Banner>
         <Other></Other>
         <Banner02></Banner02>
+        <Juli></Juli>
 
     </div>
 </template>
@@ -12,8 +13,15 @@ import header from '../../../components/header'
 import banner from '../../../components/banner'
 import other from '../../../components/other'
 import banner02 from '../../../components/banner02'
-import Axios from 'axios'
+import juli from '../../../components/juli'
 export default {
+  props:{
+    lists:{
+      type:Array
+      
+    }
+
+  },
   data () {
     return {
     }
@@ -22,7 +30,8 @@ export default {
     Header: header,
     Banner: banner,
     Other: other,
-    Banner02: banner02
+    Banner02: banner02,
+    Juli:juli
   }
 }
 </script>
